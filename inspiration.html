@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homeify — Customize furniture</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="screen">
+      <header>
+        <a class="brand" href="index.html">Homeify</a>
+        <details class="menu">
+          <summary aria-label="Open navigation">☰</summary>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Furniture selection</a>
+            <a href="inspiration.html" aria-current="page">Customize furniture</a>
+          </nav>
+        </details>
+      </header>
+
+      <main class="customize">
+        <a class="back" href="shop.html">← Furniture selection</a>
+        <p class="step">03 / CUSTOMIZE</p>
+        <section class="custom-panel" id="chair" aria-labelledby="chair-title">
+          <h1 id="chair-title">Customize <span>Chair</span></h1>
+          <div class="preview">
+            <div class="furniture chair" role="img" aria-label="Chair outline">
+              <i></i>
+            </div>
+          </div>
+          <fieldset>
+            <legend>Pick Material Color</legend>
+            <label>
+              <input type="radio" name="chair-material" value="oak">
+              <span>Oak — $100</span>
+            </label>
+            <label>
+              <input type="radio" name="chair-material" value="steel">
+              <span>Steel — $75</span>
+            </label>
+            <label>
+              <input type="radio" name="chair-material" value="plastic" checked>
+              <span>Plastic — $50</span>
+            </label>
+          </fieldset>
+          <div class="price">
+            <p class="material-price price-oak">Price: $100</p>
+            <p class="material-price price-steel">Price: $75</p>
+            <p class="material-price price-plastic">Price: $50</p>
+          </div>
+          <p class="price-note">Sample price · Based on selected material</p>
+          <button class="button checkout" type="button" disabled>Checkout</button>
+          <p class="prototype-note">Prototype only — checkout is not available.</p>
+        </section>
+
+        <section class="custom-panel" id="sofa" aria-labelledby="sofa-title">
+          <h1 id="sofa-title">Customize <span>Sofa</span></h1>
+          <div class="preview">
+            <div class="furniture sofa" role="img" aria-label="Sofa outline">
+              <i></i>
+            </div>
+          </div>
+          <fieldset>
+            <legend>Pick Material Color</legend>
+            <label>
+              <input type="radio" name="sofa-material" value="oak">
+              <span>Oak — $200</span>
+            </label>
+            <label>
+              <input type="radio" name="sofa-material" value="steel">
+              <span>Steel — $175</span>
+            </label>
+            <label>
+              <input type="radio" name="sofa-material" value="plastic" checked>
+              <span>Plastic — $150</span>
+            </label>
+          </fieldset>
+          <div class="price">
+            <p class="material-price price-oak">Price: $200</p>
+            <p class="material-price price-steel">Price: $175</p>
+            <p class="material-price price-plastic">Price: $150</p>
+          </div>
+          <p class="price-note">Sample price · Based on selected material</p>
+          <button class="button checkout" type="button" disabled>Checkout</button>
+          <p class="prototype-note">Prototype only — checkout is not available.</p>
+        </section>
+
+        <section class="custom-panel" id="credenza" aria-labelledby="credenza-title">
+          <h1 id="credenza-title">Customize <span>Credenza</span></h1>
+          <div class="preview">
+            <div class="furniture cabinet" role="img" aria-label="Credenza outline">
+              <i></i>
+            </div>
+          </div>
+          <fieldset>
+            <legend>Pick Material Color</legend>
+            <label>
+              <input type="radio" name="credenza-material" value="oak">
+              <span>Oak — $150</span>
+            </label>
+            <label>
+              <input type="radio" name="credenza-material" value="steel">
+              <span>Steel — $125</span>
+            </label>
+            <label>
+              <input type="radio" name="credenza-material" value="plastic" checked>
+              <span>Plastic — $100</span>
+            </label>
+          </fieldset>
+          <div class="price">
+            <p class="material-price price-oak">Price: $150</p>
+            <p class="material-price price-steel">Price: $125</p>
+            <p class="material-price price-plastic">Price: $100</p>
+          </div>
+          <p class="price-note">Sample price · Based on selected material</p>
+          <button class="button checkout" type="button" disabled>Checkout</button>
+          <p class="prototype-note">Prototype only — checkout is not available.</p>
+        </section>
+
+      </main>
+
+      <footer>
+        homify
+      </footer>
+    </div>
+  </body>
+</html>
