@@ -1,130 +1,479 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homeify — Customize furniture</title>
+
+    <title>Homeify — Customize Furniture</title>
+
     <link rel="stylesheet" href="styles.css">
-  </head>
+    <script src="navigation.js" defer></script>
+</head>
 
-  <body>
-    <div class="screen">
-      <header>
+<body>
+<div class="screen">
+
+    <!-- HEADER AND NAVIGATION -->
+    <header class="site-header">
+
         <a class="brand" href="index.html">Homeify</a>
-        <details class="menu">
-          <summary aria-label="Open navigation">☰</summary>
-          <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Furniture selection</a>
-            <a href="inspiration.html" aria-current="page">Customize furniture</a>
-          </nav>
-        </details>
-      </header>
 
-      <main class="customize">
-        <a class="back" href="shop.html">← Furniture selection</a>
+        <button
+            id="menu-toggle"
+            class="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="main-navigation">
+            ☰
+        </button>
+
+        <nav
+            id="main-navigation"
+            class="main-navigation"
+            aria-label="Main navigation"
+            hidden>
+
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <!-- SHOP -->
+                <li>
+                    <button
+                        type="button"
+                        class="submenu-toggle"
+                        aria-expanded="false"
+                        aria-controls="shop-submenu">
+                        Shop
+                    </button>
+
+                    <ul id="shop-submenu" hidden>
+                        <li>
+                            <a href="shop.html">
+                                Browse Furniture
+                            </a>
+                        </li>
+
+                        <li>
+                            <span class="nav-placeholder">
+                                New Arrivals (planned)
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="nav-placeholder">
+                                Clearance (planned)
+                            </span>
+                        </li>
+
+                        <!-- SHOP BY TYPE -->
+                        <li>
+                            <button
+                                type="button"
+                                class="submenu-toggle"
+                                aria-expanded="false"
+                                aria-controls="type-submenu">
+                                Shop by Type
+                            </button>
+
+                            <ul id="type-submenu" hidden>
+
+                                <!-- STORAGE -->
+                                <li>
+                                    <div class="nav-link-row">
+                                        <a href="shop.html?type=storage">
+                                            Storage
+                                        </a>
+
+                                        <button
+                                            type="button"
+                                            class="submenu-toggle"
+                                            aria-label="Expand Storage"
+                                            aria-expanded="false"
+                                            aria-controls="storage-submenu">
+                                        </button>
+                                    </div>
+
+                                    <ul id="storage-submenu" hidden>
+                                        <li>
+                                            <a href="shop.html?type=credenza">
+                                                Credenzas
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="shop.html?type=shelf">
+                                                Shelves
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- SEATING -->
+                                <li>
+                                    <div class="nav-link-row">
+                                        <a href="shop.html?type=seating">
+                                            Seating
+                                        </a>
+
+                                        <button
+                                            type="button"
+                                            class="submenu-toggle"
+                                            aria-label="Expand Seating"
+                                            aria-expanded="false"
+                                            aria-controls="seating-submenu">
+                                        </button>
+                                    </div>
+
+                                    <ul id="seating-submenu" hidden>
+                                        <li>
+                                            <a href="shop.html?type=chair">
+                                                Chairs
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="shop.html?type=sofa">
+                                                Sofas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- CUSTOMIZER -->
+                <li>
+                    <a href="inspiration.html" aria-current="page">
+                        Customizer
+                    </a>
+                </li>
+
+                <!-- ACCOUNT -->
+                <li>
+                    <button
+                        type="button"
+                        class="submenu-toggle"
+                        aria-expanded="false"
+                        aria-controls="account-submenu">
+                        Account
+                    </button>
+
+                    <ul id="account-submenu" hidden>
+                        <li>
+                            <span class="nav-placeholder">
+                                Sign in / Create Account (planned)
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="nav-placeholder">
+                                My Orders (planned)
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="nav-placeholder">
+                                My Warehouse (planned)
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- CONTACT -->
+                <li>
+                    <span class="nav-placeholder">
+                        Contact Us (planned)
+                    </span>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CUSTOMIZER -->
+    <main class="customize">
+
+        <a class="back" href="shop.html">
+            ← Furniture selection
+        </a>
+
         <p class="step">03 / CUSTOMIZE</p>
-        <section class="custom-panel" id="chair" aria-labelledby="chair-title">
-          <h1 id="chair-title">Customize <span>Chair</span></h1>
-          <div class="preview">
-            <div class="furniture chair" role="img" aria-label="Chair outline">
-              <i></i>
+
+        <!-- CHAIR CUSTOMIZER -->
+        <section
+            class="custom-panel"
+            id="chair"
+            aria-labelledby="chair-title">
+
+            <h1 id="chair-title">
+                Customize <span>Chair</span>
+            </h1>
+
+            <div class="preview">
+                <div
+                    class="furniture chair"
+                    role="img"
+                    aria-label="Chair outline">
+                    <i></i>
+                </div>
             </div>
-          </div>
-          <fieldset>
-            <legend>Pick Material Color</legend>
-            <label>
-              <input type="radio" name="chair-material" value="oak">
-              <span>Oak — $100</span>
-            </label>
-            <label>
-              <input type="radio" name="chair-material" value="steel">
-              <span>Steel — $75</span>
-            </label>
-            <label>
-              <input type="radio" name="chair-material" value="plastic" checked>
-              <span>Plastic — $50</span>
-            </label>
-          </fieldset>
-          <div class="price">
-            <p class="material-price price-oak">Price: $100</p>
-            <p class="material-price price-steel">Price: $75</p>
-            <p class="material-price price-plastic">Price: $50</p>
-          </div>
-          <p class="price-note">Sample price · Based on selected material</p>
-          <button class="button checkout" type="button" disabled>Checkout</button>
-          <p class="prototype-note">Prototype only — checkout is not available.</p>
+
+            <fieldset>
+                <legend>Pick Material Color</legend>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="chair-material"
+                        value="oak">
+                    <span>Oak — $100</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="chair-material"
+                        value="steel">
+                    <span>Steel — $75</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="chair-material"
+                        value="plastic"
+                        checked>
+                    <span>Plastic — $50</span>
+                </label>
+            </fieldset>
+
+            <div class="price">
+                <p class="material-price price-oak">
+                    Price: $100
+                </p>
+                <p class="material-price price-steel">
+                    Price: $75
+                </p>
+                <p class="material-price price-plastic">
+                    Price: $50
+                </p>
+            </div>
+
+            <p class="price-note">
+                Sample price · Based on selected material
+            </p>
+
+            <button
+                class="button checkout"
+                type="button"
+                disabled>
+                Checkout
+            </button>
+
+            <p class="prototype-note">
+                Prototype only — checkout is not available.
+            </p>
         </section>
 
-        <section class="custom-panel" id="sofa" aria-labelledby="sofa-title">
-          <h1 id="sofa-title">Customize <span>Sofa</span></h1>
-          <div class="preview">
-            <div class="furniture sofa" role="img" aria-label="Sofa outline">
-              <i></i>
+        <!-- SOFA CUSTOMIZER -->
+        <section
+            class="custom-panel"
+            id="sofa"
+            aria-labelledby="sofa-title">
+
+            <h1 id="sofa-title">
+                Customize <span>Sofa</span>
+            </h1>
+
+            <div class="preview">
+                <div
+                    class="furniture sofa"
+                    role="img"
+                    aria-label="Sofa outline">
+                    <i></i>
+                </div>
             </div>
-          </div>
-          <fieldset>
-            <legend>Pick Material Color</legend>
-            <label>
-              <input type="radio" name="sofa-material" value="oak">
-              <span>Oak — $200</span>
-            </label>
-            <label>
-              <input type="radio" name="sofa-material" value="steel">
-              <span>Steel — $175</span>
-            </label>
-            <label>
-              <input type="radio" name="sofa-material" value="plastic" checked>
-              <span>Plastic — $150</span>
-            </label>
-          </fieldset>
-          <div class="price">
-            <p class="material-price price-oak">Price: $200</p>
-            <p class="material-price price-steel">Price: $175</p>
-            <p class="material-price price-plastic">Price: $150</p>
-          </div>
-          <p class="price-note">Sample price · Based on selected material</p>
-          <button class="button checkout" type="button" disabled>Checkout</button>
-          <p class="prototype-note">Prototype only — checkout is not available.</p>
+
+            <fieldset>
+                <legend>Pick Material Color</legend>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="sofa-material"
+                        value="oak">
+                    <span>Oak — $200</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="sofa-material"
+                        value="steel">
+                    <span>Steel — $175</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="sofa-material"
+                        value="plastic"
+                        checked>
+                    <span>Plastic — $150</span>
+                </label>
+            </fieldset>
+
+            <div class="price">
+                <p class="material-price price-oak">
+                    Price: $200
+                </p>
+                <p class="material-price price-steel">
+                    Price: $175
+                </p>
+                <p class="material-price price-plastic">
+                    Price: $150
+                </p>
+            </div>
+
+            <p class="price-note">
+                Sample price · Based on selected material
+            </p>
+
+            <button
+                class="button checkout"
+                type="button"
+                disabled>
+                Checkout
+            </button>
+
+            <p class="prototype-note">
+                Prototype only — checkout is not available.
+            </p>
         </section>
 
-        <section class="custom-panel" id="credenza" aria-labelledby="credenza-title">
-          <h1 id="credenza-title">Customize <span>Credenza</span></h1>
-          <div class="preview">
-            <div class="furniture cabinet" role="img" aria-label="Credenza outline">
-              <i></i>
+        <!-- SHELF PREVIEW -->
+        <!-- Shelf customization is not implemented. -->
+        <section
+            class="custom-panel"
+            id="shelf"
+            aria-labelledby="shelf-title">
+
+            <h1 id="shelf-title">
+                Shelf <span>Preview</span>
+            </h1>
+
+            <div class="preview">
+                <div
+                    class="furniture shelf"
+                    role="img"
+                    aria-label="Shelf outline">
+                    <i></i>
+                </div>
             </div>
-          </div>
-          <fieldset>
-            <legend>Pick Material Color</legend>
-            <label>
-              <input type="radio" name="credenza-material" value="oak">
-              <span>Oak — $150</span>
-            </label>
-            <label>
-              <input type="radio" name="credenza-material" value="steel">
-              <span>Steel — $125</span>
-            </label>
-            <label>
-              <input type="radio" name="credenza-material" value="plastic" checked>
-              <span>Plastic — $100</span>
-            </label>
-          </fieldset>
-          <div class="price">
-            <p class="material-price price-oak">Price: $150</p>
-            <p class="material-price price-steel">Price: $125</p>
-            <p class="material-price price-plastic">Price: $100</p>
-          </div>
-          <p class="price-note">Sample price · Based on selected material</p>
-          <button class="button checkout" type="button" disabled>Checkout</button>
-          <p class="prototype-note">Prototype only — checkout is not available.</p>
+
+            <p class="prototype-note">
+                Shelf customization is not available
+                in this prototype.
+            </p>
+
+            <a
+                class="button"
+                href="shop.html?type=shelf">
+                Browse Shelves
+            </a>
         </section>
 
-      </main>
+        <!-- CREDENZA CUSTOMIZER -->
+        <section
+            class="custom-panel"
+            id="credenza"
+            aria-labelledby="credenza-title">
 
-      <footer>
-        homify
-      </footer>
-    </div>
-  </body>
+            <h1 id="credenza-title">
+                Customize <span>Credenza</span>
+            </h1>
+
+            <div class="preview">
+                <div
+                    class="furniture cabinet"
+                    role="img"
+                    aria-label="Credenza outline">
+                    <i></i>
+                </div>
+            </div>
+
+            <fieldset>
+                <legend>Pick Material Color</legend>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="credenza-material"
+                        value="oak">
+                    <span>Oak — $150</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="credenza-material"
+                        value="steel">
+                    <span>Steel — $125</span>
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="credenza-material"
+                        value="plastic"
+                        checked>
+                    <span>Plastic — $100</span>
+                </label>
+            </fieldset>
+
+            <div class="price">
+                <p class="material-price price-oak">
+                    Price: $150
+                </p>
+                <p class="material-price price-steel">
+                    Price: $125
+                </p>
+                <p class="material-price price-plastic">
+                    Price: $100
+                </p>
+            </div>
+
+            <p class="price-note">
+                Sample price · Based on selected material
+            </p>
+
+            <button
+                class="button checkout"
+                type="button"
+                disabled>
+                Checkout
+            </button>
+
+            <p class="prototype-note">
+                Prototype only — checkout is not available.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        Homeify
+    </footer>
+
+</div>
+</body>
 </html>

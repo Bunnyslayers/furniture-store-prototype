@@ -1,65 +1,259 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homeify — Furniture selection</title>
+    <title>Homeify — Furniture Selection</title>
     <link rel="stylesheet" href="styles.css">
-  </head>
-
-  <body>
-    <div class="screen">
-      <header>
+    <script src="navigation.js" defer></script>
+    <script src="catalog.js" defer></script>
+</head>
+<body>
+<div class="screen">
+    <header class="site-header">
         <a class="brand" href="index.html">Homeify</a>
-        <details class="menu">
-          <summary aria-label="Open navigation">☰</summary>
-          <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html" aria-current="page">Furniture selection</a>
-            <a href="inspiration.html">Customize furniture</a>
-          </nav>
-        </details>
-      </header>
+        <button id="menu-toggle" class="menu-toggle" type="button"
+                aria-label="Open navigation" aria-expanded="false"
+                aria-controls="main-navigation">☰</button>
 
-      <main class="selection">
+        <nav id="main-navigation" class="main-navigation"
+             aria-label="Main navigation" hidden>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <button type="button" class="submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="shop-submenu">Shop</button>
+                    <ul id="shop-submenu" hidden>
+                        <li>
+                            <a href="shop.html" aria-current="page">
+                                Browse Furniture
+                            </a>
+                        </li>
+                        <li>
+                            <span class="nav-placeholder">
+                                New Arrivals (planned)
+                            </span>
+                        </li>
+                        <li>
+                            <span class="nav-placeholder">
+                                Clearance (planned)
+                            </span>
+                        </li>
+                        <li>
+                            <button type="button" class="submenu-toggle"
+                                    aria-expanded="false"
+                                    aria-controls="type-submenu">
+                                Shop by Type
+                            </button>
+
+                            <ul id="type-submenu" hidden>
+                                <li>
+                                    <div class="nav-link-row">
+                                        <a href="shop.html?type=storage">
+                                            Storage
+                                        </a>
+                                        <button type="button"
+                                                class="submenu-toggle"
+                                                aria-label="Expand Storage"
+                                                aria-expanded="false"
+                                                aria-controls="storage-submenu">
+                                        </button>
+                                    </div>
+                                    <ul id="storage-submenu" hidden>
+                                        <li>
+                                            <a href="shop.html?type=credenza">
+                                                Credenzas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop.html?type=shelf">
+                                                Shelves
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <div class="nav-link-row">
+                                        <a href="shop.html?type=seating">
+                                            Seating
+                                        </a>
+                                        <button type="button"
+                                                class="submenu-toggle"
+                                                aria-label="Expand Seating"
+                                                aria-expanded="false"
+                                                aria-controls="seating-submenu">
+                                        </button>
+                                    </div>
+                                    <ul id="seating-submenu" hidden>
+                                        <li>
+                                            <a href="shop.html?type=chair">
+                                                Chairs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop.html?type=sofa">
+                                                Sofas
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="inspiration.html">Customizer</a></li>
+
+                <li>
+                    <button type="button" class="submenu-toggle"
+                            aria-expanded="false"
+                            aria-controls="account-submenu">
+                        Account
+                    </button>
+                    <ul id="account-submenu" hidden>
+                        <li>
+                            <span class="nav-placeholder">
+                                Sign in / Create Account (planned)
+                            </span>
+                        </li>
+                        <li>
+                            <span class="nav-placeholder">
+                                My Orders (planned)
+                            </span>
+                        </li>
+                        <li>
+                            <span class="nav-placeholder">
+                                My Warehouse (planned)
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="nav-placeholder">
+                        Contact Us (planned)
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="selection shop-page">
         <a class="back" href="index.html">← Home</a>
-        <p class="step">02 / SELECT</p>
-        <h1>Furniture Selection</h1>
-        <p class="page-intro">Choose a piece to make your own.</p>
-        <div class="products">
-          <article class="product">
-            <h2>Credenza</h2>
-            <div class="furniture cabinet" role="img" aria-label="Cabinet outline">
-              <i></i>
+        <h1>Shop Furniture</h1>
+        <p class="page-intro">
+            Explore our furniture collections and find a design to customize.
+        </p>
+
+        <!-- SHOP CATEGORY CARDS -->
+        <section class="category-section"
+                 aria-labelledby="category-heading">
+            <div class="section-heading">
+                <h2 id="category-heading">Shop Categories</h2>
+                <button id="category-toggle"
+                        type="button"
+                        class="button"
+                        aria-expanded="true"
+                        aria-controls="category-grid">
+                    Hide Categories
+                </button>
             </div>
-            <p>Starting at $100</p>
-            <a class="button" href="inspiration.html#credenza">Select <span class="sr-only">credenza</span></a>
-          </article>
 
-          <article class="product">
-            <h2>Chair</h2>
-            <div class="furniture chair" role="img" aria-label="Chair outline">
-              <i></i>
+            <div id="category-grid" class="shop-categories">
+
+                <!-- NEW ARRIVALS -->
+                <article class="category-card">
+                    <div class="category-carousel" aria-hidden="true">
+                        <div class="furniture cabinet"><i></i></div>
+                        <div class="furniture chair"><i></i></div>
+                        <div class="furniture sofa"><i></i></div>
+                    </div>
+                    <h3>New Arrivals</h3>
+                    <p>Coming Soon</p>
+                </article>
+
+                <!-- CLEARANCE -->
+                <article class="category-card">
+                    <div class="category-carousel" aria-hidden="true">
+                        <div class="furniture cabinet"><i></i></div>
+                        <div class="furniture chair"><i></i></div>
+                        <div class="furniture sofa"><i></i></div>
+                    </div>
+                    <h3>Clearance</h3>
+                    <p>Coming Soon</p>
+                </article>
+
+                <!-- STORAGE -->
+                <article class="category-card">
+                    <div class="category-carousel" aria-hidden="true">
+                        <div class="furniture cabinet"><i></i></div>
+                        <div class="furniture chair"><i></i></div>
+                        <div class="furniture sofa"><i></i></div>
+                    </div>
+                    <h3>Storage</h3>
+                    <a class="button"
+                       href="shop.html?type=storage"
+                       data-catalog-filter="storage">
+                        Browse Storage
+                    </a>
+                </article>
+
+                <!-- SEATING -->
+                <article class="category-card">
+                    <div class="category-carousel" aria-hidden="true">
+                        <div class="furniture cabinet"><i></i></div>
+                        <div class="furniture chair"><i></i></div>
+                        <div class="furniture sofa"><i></i></div>
+                    </div>
+                    <h3>Seating</h3>
+                    <a class="button"
+                       href="shop.html?type=seating"
+                       data-catalog-filter="seating">
+                        Browse Seating
+                    </a>
+                </article>
             </div>
-            <p>Starting at $50</p>
-            <a class="button" href="inspiration.html#chair">Select <span class="sr-only">chair</span></a>
-          </article>
+        </section>
 
-          <article class="product">
-            <h2>Sofa</h2>
-            <div class="furniture sofa" role="img" aria-label="Sofa outline">
-              <i></i>
+        <!-- FILTERABLE PRODUCT CATALOG -->
+        <section class="catalog-section"
+                 aria-labelledby="catalog-heading">
+            <h2 id="catalog-heading">All Furniture</h2>
+
+            <div class="catalog-controls">
+                <label for="catalog-filter">
+                    Filter by furniture type
+                </label>
+
+                <select id="catalog-filter">
+                    <option value="all">All Furniture</option>
+                    <option value="storage">Storage</option>
+                    <option value="credenza">Credenzas</option>
+                    <option value="shelf">Shelves</option>
+                    <option value="seating">Seating</option>
+                    <option value="chair">Chairs</option>
+                    <option value="sofa">Sofas</option>
+                </select>
+
+                <button id="clear-filter"
+                        type="button"
+                        class="button"
+                        hidden>
+                    Clear Filter
+                </button>
             </div>
-            <p>Starting at $150</p>
-            <a class="button" href="inspiration.html#sofa">Select <span class="sr-only">sofa</span></a>
-          </article>
 
-        </div>
-      </main>
+            <p id="catalog-count"
+               role="status"
+               aria-live="polite"></p>
 
-      <footer>
-        homify
-      </footer>
-    </div>
-  </body>
+            <div id="catalog-products" class="products"></div>
+        </section>
+    </main>
+
+    <footer>Homeify</footer>
+</div>
+</body>
 </html>

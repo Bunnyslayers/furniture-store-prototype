@@ -1,50 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Homeify — Welcome</title>
+    <title>Homeify — Home</title>
     <link rel="stylesheet" href="styles.css">
-  </head>
-
-  <body>
-    <div class="screen">
-      <header>
+    <script src="navigation.js" defer></script>
+</head>
+<body>
+<div class="screen">
+    <header class="site-header">
         <a class="brand" href="index.html">Homeify</a>
-        <details class="menu">
-          <summary aria-label="Open navigation">☰</summary>
-          <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Furniture selection</a>
-            <a href="inspiration.html">Customize furniture</a>
-          </nav>
-        </details>
-      </header>
+        <button id="menu-toggle" class="menu-toggle" type="button"
+                aria-label="Open navigation" aria-expanded="false"
+                aria-controls="main-navigation">☰</button>
+        <nav id="main-navigation" class="main-navigation" aria-label="Main navigation" hidden>
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li>
+                    <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="shop-submenu">Shop</button>
+                    <ul id="shop-submenu" hidden>
+                        <li><a href="shop.html">Browse Furniture</a></li>
+                        <li><span class="nav-placeholder">New Arrivals (planned)</span></li>
+                        <li><span class="nav-placeholder">Clearance (planned)</span></li>
+                        <li>
+                            <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="type-submenu">Shop by Type</button>
+                            <ul id="type-submenu" hidden>
+                                <li>
+                                    <div class="nav-link-row">
+                                        <a href="shop.html?type=storage">Storage</a>
+                                        <button type="button" class="submenu-toggle" aria-label="Expand Storage" aria-expanded="false" aria-controls="storage-submenu"></button>
+                                    </div>
+                                    <ul id="storage-submenu" hidden>
+                                        <li><a href="shop.html?type=credenza">Credenzas</a></li>
+                                        <li><a href="shop.html?type=shelf">Shelves</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="nav-link-row">
+                                        <a href="shop.html?type=seating">Seating</a>
+                                        <button type="button" class="submenu-toggle" aria-label="Expand Seating" aria-expanded="false" aria-controls="seating-submenu"></button>
+                                    </div>
+                                    <ul id="seating-submenu" hidden>
+                                        <li><a href="shop.html?type=chair">Chairs</a></li>
+                                        <li><a href="shop.html?type=sofa">Sofas</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="inspiration.html">Customizer</a></li>
+                <li>
+                    <button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="account-submenu">Account</button>
+                    <ul id="account-submenu" hidden>
+                        <li><span class="nav-placeholder">Sign in / Create Account (planned)</span></li>
+                        <li><span class="nav-placeholder">My Orders (planned)</span></li>
+                        <li><span class="nav-placeholder">My Warehouse (planned)</span></li>
+                    </ul>
+                </li>
+                <li><span class="nav-placeholder">Contact Us (planned)</span></li>
+            </ul>
+        </nav>
+    </header>
 
-      <main class="welcome">
-        <p class="step">01 / WELCOME</p>
-        <h1><span>Welcome</span><br>to<br>Homeify</h1>
-        <div class="room" aria-label="Simple outlines of a sofa, chair, and cabinet">
-          <div class="furniture sofa">
-            <i></i>
-          </div>
-          <div class="furniture chair">
-            <i></i>
-          </div>
-          <div class="furniture cabinet">
-            <i></i>
-          </div>
+    <main class="welcome">
+        <h1>Welcome to Homeify</h1>
+        <p class="intro">Furniture designed for your space, your style, and your needs.</p>
+        <div class="room" aria-hidden="true">
+            <div class="furniture sofa"><i></i></div>
+            <div class="furniture chair"><i></i></div>
+            <div class="furniture cabinet"><i></i></div>
         </div>
-        <p class="intro">Furniture for your space.</p>
         <div class="home-actions">
-          <a class="button" href="shop.html">Shop now <span aria-hidden="true">→</span></a>
-          <a class="secondary" href="inspiration.html">Customize a piece</a>
+            <a class="button" href="shop.html">Shop Furniture</a>
+            <a class="button" href="inspiration.html">Start Customizing</a>
         </div>
-      </main>
-
-      <footer>
-        homify
-      </footer>
-    </div>
-  </body>
+        <p class="intro">Browse furniture and explore customization options.</p>
+    </main>
+    <footer>Homeify</footer>
+</div>
+</body>
 </html>
