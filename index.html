@@ -14,6 +14,11 @@
         <button id="menu-toggle" class="menu-toggle" type="button"
                 aria-label="Open navigation" aria-expanded="false"
                 aria-controls="main-navigation">☰</button>
+        <div class="header-actions" aria-label="Quick navigation">
+            <a href="shop.html" aria-label="Browse furniture" title="Browse furniture"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></a>
+            <a href="shop.html" aria-label="Explore favorites in the catalog" title="Browse products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 8.7c0 4.3-8.5 10-8.5 10S3.5 13 3.5 8.7a4.4 4.4 0 0 1 8.5-1.4 4.4 4.4 0 0 1 8.5 1.4Z"/></svg></a>
+            <a href="shop.html" aria-label="Shop furniture" title="Shop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11h11.2l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></a>
+        </div>
         <nav id="main-navigation" class="main-navigation" aria-label="Main navigation" hidden>
             <ul>
                 <li><a href="index.html" aria-current="page">Home</a></li>
@@ -64,19 +69,19 @@
         </nav>
     </header>
 
-    <main class="welcome">
-        <h1>Welcome to Homeify</h1>
-        <p class="intro">Furniture designed for your space, your style, and your needs.</p>
-        <div class="room" aria-hidden="true">
-            <div class="furniture sofa"><i></i></div>
-            <div class="furniture chair"><i></i></div>
-            <div class="furniture cabinet"><i></i></div>
+    <main class="welcome" id="main-content">
+        <div class="welcome-copy">
+            <h1><span>Welcome</span><br>to<br>Homeify</h1>
+            <p class="sr-only">Discover and customize furniture for your home.</p>
+        </div>
+        <div class="hero-furniture" aria-label="Preview of Homeify furniture: sofa, credenza and chair">
+            <img src="assets/sofa.png" alt="Sage green sofa" class="hero-piece hero-left">
+            <img src="assets/credenza.png" alt="Wooden credenza with plants" class="hero-piece hero-center">
+            <img src="assets/chair.png" alt="Sage green chair" class="hero-piece hero-right">
         </div>
         <div class="home-actions">
-            <a class="button" href="shop.html">Shop Furniture</a>
-            <a class="button" href="inspiration.html">Start Customizing</a>
+            <a class="button primary-cta" href="shop.html">Shop now <span aria-hidden="true">→</span></a>
         </div>
-        <p class="intro">Browse furniture and explore customization options.</p>
     </main>
     <footer>Homeify</footer>
 </div>

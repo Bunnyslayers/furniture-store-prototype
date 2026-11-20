@@ -16,6 +16,11 @@
         <button id="menu-toggle" class="menu-toggle" type="button"
                 aria-label="Open navigation" aria-expanded="false"
                 aria-controls="main-navigation">☰</button>
+        <div class="header-actions" aria-label="Quick navigation">
+            <a href="shop.html" aria-label="Browse furniture" title="Browse furniture"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></a>
+            <a href="shop.html" aria-label="Explore favorites in the catalog" title="Browse products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 8.7c0 4.3-8.5 10-8.5 10S3.5 13 3.5 8.7a4.4 4.4 0 0 1 8.5-1.4 4.4 4.4 0 0 1 8.5 1.4Z"/></svg></a>
+            <a href="shop.html" aria-label="Shop furniture" title="Shop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11h11.2l2-8H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></a>
+        </div>
 
         <nav id="main-navigation" class="main-navigation"
              aria-label="Main navigation" hidden>
@@ -140,14 +145,30 @@
         </nav>
     </header>
 
-    <main class="selection shop-page">
-        <a class="back" href="index.html">← Home</a>
-        <h1>Shop Furniture</h1>
-        <p class="page-intro">
-            Explore our furniture collections and find a design to customize.
-        </p>
-
-        <!-- SHOP CATEGORY CARDS -->
+    <main class="selection shop-page" id="main-content">
+        <h1>Furniture Selection</h1>
+        <p class="sr-only">Choose a piece of furniture to customize. The featured products match our Phase 2 storyboard.</p>
+        <section class="storyboard-products" aria-label="Featured furniture">
+            <article class="storyboard-product">
+                <h2>Credenza</h2>
+                <img src="assets/credenza.png" alt="Wooden credenza" loading="eager">
+                <p>Starting at <strong>$100</strong></p>
+                <a class="button select-credenza" href="inspiration.html#credenza">Select</a>
+            </article>
+            <article class="storyboard-product">
+                <h2>Chair</h2>
+                <img src="assets/chair.png" alt="Sage green upholstered chair" loading="lazy">
+                <p>Starting at <strong>$50</strong></p>
+                <a class="button select-chair" href="inspiration.html#chair">Select</a>
+            </article>
+            <article class="storyboard-product">
+                <h2>Sofa</h2>
+                <img src="assets/sofa.png" alt="Sage green sofa with pink pillows" loading="lazy">
+                <p>Starting at <strong>$150</strong></p>
+                <a class="button select-sofa" href="inspiration.html#sofa">Select</a>
+            </article>
+        </section>
+        <div class="more-furniture-heading"><span>Explore more furniture</span></div>
         <section class="category-section"
                  aria-labelledby="category-heading">
             <div class="section-heading">
@@ -166,9 +187,9 @@
                 <!-- NEW ARRIVALS -->
                 <article class="category-card">
                     <div class="category-carousel" aria-hidden="true">
-                        <div class="furniture cabinet"><i></i></div>
-                        <div class="furniture chair"><i></i></div>
-                        <div class="furniture sofa"><i></i></div>
+                        <img class="category-image" src="assets/credenza.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/chair.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/sofa.png" alt="" loading="lazy">
                     </div>
                     <h3>New Arrivals</h3>
                     <p>Coming Soon</p>
@@ -177,9 +198,9 @@
                 <!-- CLEARANCE -->
                 <article class="category-card">
                     <div class="category-carousel" aria-hidden="true">
-                        <div class="furniture cabinet"><i></i></div>
-                        <div class="furniture chair"><i></i></div>
-                        <div class="furniture sofa"><i></i></div>
+                        <img class="category-image" src="assets/credenza.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/chair.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/sofa.png" alt="" loading="lazy">
                     </div>
                     <h3>Clearance</h3>
                     <p>Coming Soon</p>
@@ -188,9 +209,9 @@
                 <!-- STORAGE -->
                 <article class="category-card">
                     <div class="category-carousel" aria-hidden="true">
-                        <div class="furniture cabinet"><i></i></div>
-                        <div class="furniture chair"><i></i></div>
-                        <div class="furniture sofa"><i></i></div>
+                        <img class="category-image" src="assets/credenza.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/chair.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/sofa.png" alt="" loading="lazy">
                     </div>
                     <h3>Storage</h3>
                     <a class="button"
@@ -203,9 +224,9 @@
                 <!-- SEATING -->
                 <article class="category-card">
                     <div class="category-carousel" aria-hidden="true">
-                        <div class="furniture cabinet"><i></i></div>
-                        <div class="furniture chair"><i></i></div>
-                        <div class="furniture sofa"><i></i></div>
+                        <img class="category-image" src="assets/credenza.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/chair.png" alt="" loading="lazy">
+                        <img class="category-image" src="assets/sofa.png" alt="" loading="lazy">
                     </div>
                     <h3>Seating</h3>
                     <a class="button"
