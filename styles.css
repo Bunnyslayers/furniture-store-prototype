@@ -699,3 +699,145 @@ fieldset input:checked + span {
         opacity: 1;
     }
 }
+
+
+/* =======================================================
+   PHASE 3 VISUAL UPDATE — derived from Phase 2 storyboard
+   ======================================================= */
+:root {
+  --homeify-green: #557f64;
+  --homeify-sage: #8db778;
+  --homeify-ink: #282633;
+  --homeify-bg: #f7f7f7;
+  --homeify-card: #eaeaea;
+  --homeify-blue: #4c8de6;
+}
+body {background: #e4e7e2; color: var(--homeify-ink); font-family: Arial, Helvetica, sans-serif;}
+.screen {background: var(--homeify-bg);}
+.site-header {background: var(--homeify-bg); border: none; min-height: 64px; padding: 14px 21px; gap: 14px; justify-content: flex-start;}
+.site-header .brand {font-weight: 700; font-size: 17px; letter-spacing: -.4px; order: 2;}
+.site-header .menu-toggle {font-size: 23px; order: 1; margin-right: auto; padding: 4px; line-height: 1;}
+.header-actions {display:flex; gap:13px; align-items:center; order:3; margin-left:auto;}
+.header-actions a {display:flex; justify-content:center; align-items:center; width:24px; height:28px; text-decoration:none; color:#20212b; font-size:21px;}
+.header-actions svg {width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.main-navigation {left:16px;right:auto;top:100%; background:#fff; border:1px solid #dde4dd; border-radius:12px; box-shadow:0 14px 34px #252a2530;}
+.main-navigation a:hover,.submenu-toggle:hover {background:#eaf1e8;}
+.button {border:0; border-radius:6px; background:var(--homeify-green);color:white;font-size:13px;font-weight:600;min-height:38px;box-shadow:0 3px 5px #00000014;transition: background .2s,transform .2s;}
+.button:hover {background:#426b50; transform:translateY(-1px);}
+.button:focus-visible {outline:3px solid #254e38;outline-offset:3px;}
+h1,h2 {color:var(--homeify-ink);}
+footer {background:var(--homeify-bg);border:0;color:#aaa;font-size:11px;}
+main {max-width:1000px;}
+/* Screen 1: light grey welcome, vertical title, furniture triptych and Shop Now */
+.welcome {min-height:calc(100svh - 115px);display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:18px 0 45px; text-align:center; overflow:hidden;}
+.welcome-copy {padding:0 18px; margin:45px 0 0;}
+.welcome h1 {font-family:Georgia,'Times New Roman',serif; font-size:30px;line-height:1.38;font-weight:normal;margin:0;}
+.welcome h1 span {color:var(--homeify-sage);font:inherit;}
+.hero-furniture {width:100%; max-width:640px; height:194px; margin:50px 0 30px;display:flex;align-items:end;justify-content:center;position:relative;gap:0;overflow:hidden;}
+.hero-furniture:after {content:'';position:absolute;bottom:2px;left:0;width:100%;height:1px;background:#d6d9d3;}
+.hero-piece {width:33.333%;height:100%;object-fit:contain; object-position:center bottom;filter:drop-shadow(0 6px 4px #00000014);}
+.hero-center {width:43%; z-index:2;}
+.hero-left,.hero-right {width:30%;height:75%;}
+.welcome .home-actions {margin:75px auto 0;padding:0 16px;max-width:240px;}
+.welcome .home-actions .button {width:auto;min-width:135px;min-height:43px; font-family:Georgia,serif;font-weight:normal;}
+/* Screen 2: clear stacked product cards / price and selects */
+.shop-page {padding-top:15px;}
+.shop-page > h1 {text-align:center;font-size:22px;margin:12px 0 18px;font-weight:normal;}
+.storyboard-products {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:750px;margin:0 auto 35px;}
+.storyboard-product {background:#ebebeb; border:1px solid #e1e1e1; border-radius:7px; padding:12px 12px 9px;display:flex;flex-direction:column; align-items:center;box-shadow:0 3px 2px #00000012;}
+.storyboard-product h2 {font-size:13px; margin:0 0 4px;font-weight:600;}
+.storyboard-product:first-child h2 {color:#4d8fdd;}
+.storyboard-product:nth-child(2) h2 {color:#66876a;}
+.storyboard-product img {height:100px;width:100%; object-fit:contain;}
+.storyboard-product p {margin:0 0 7px;font-size:12px;color:#1d1d1d;}
+.storyboard-product .button {min-height:32px;width:100%;max-width:170px;padding:5px 10px;font-size:12px;}
+.storyboard-product .select-credenza {background:var(--homeify-blue);}
+.storyboard-product .select-chair {background:#809f79;}
+.storyboard-product .select-sofa {background:#39344d;}
+.more-furniture-heading {text-align:left; margin:20px auto 8px;max-width:900px;color:#55655c;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.shop-categories {gap:12px;}
+.category-card,.product {border-radius:9px;border:1px solid #dce2db;background:#fff;}
+.category-card {padding:12px;}
+.category-carousel {background:#f6f7f5;border-radius:6px;}
+.category-carousel .category-image {position:absolute; max-width:92%; max-height:100px;object-fit:contain;opacity:0;animation:furniture-rotate 9s linear infinite;}
+.category-carousel .category-image:nth-child(1){animation-delay:0s;}
+.category-carousel .category-image:nth-child(2){animation-delay:-6s;}
+.category-carousel .category-image:nth-child(3){animation-delay:-3s;}
+#category-grid[hidden] .category-image {animation-play-state:paused;}
+.catalog-product-image {height:140px;width:100%;object-fit:contain;margin:10px auto;display:block;}
+.product {display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+.product .button {background:var(--homeify-green);}
+/* Screen 3: image preview, simple material panel and price */
+.customize {max-width:560px;padding:12px 22px 42px;}
+.customize > .back {margin-bottom:14px;color:#607164;}
+.customize .step {display:none;}
+.customize h1 {font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.4;margin:8px 0 0;}
+.customize h1 span {font-size:19px;font-weight:600;color:#527d61;margin:0;}
+.preview {height:230px;margin:10px auto 20px;}
+.preview .custom-furniture-image {height:100%;width:min(100%,420px);object-fit:contain;filter:drop-shadow(0 9px 5px #0000000d);}
+.customize fieldset {max-width:350px;border:0;border-radius:6px;background:#dedede;padding:16px 12px 12px;margin:0 auto 22px;}
+.customize fieldset legend {float:left;width:100%;font-size:16px;font-weight:600;margin-bottom:6px;padding:0;}
+.customize fieldset label {margin:7px 0;}
+.customize fieldset label span {border:1px solid #ececec;background:#fff;padding:10px 28px;border-radius:2px;font-size:13px;}
+.customize fieldset input {accent-color:var(--homeify-green);top:13px;}
+.customize fieldset input:checked+span {background:#edf4e8;border:2px solid var(--homeify-green);padding:9px 27px;}
+.customize .price {font-size:17px;font-weight:600;margin:22px auto 2px;}
+.customize .checkout {background:#39344d;color:#fff;min-width:135px;}
+.customize .checkout:disabled {background:#39344d;color:#f2f2f2;opacity:.78;}
+.customize .prototype-note {font-size:11px;}
+@media (min-width: 760px) {
+  .screen {max-width:1120px;box-shadow:0 10px 35px #0000000b;}
+  .welcome {padding-top:36px;}
+  .welcome-copy {margin-top:25px;}
+  .hero-furniture {height:270px;margin-top:50px;}
+  .welcome .home-actions {margin-top:60px;}
+}
+@media (max-width: 600px) {
+  main {padding-left:16px;padding-right:16px;}
+  .site-header .brand {font-size:0;}
+  .site-header .brand::after {content:'Homeify';font-size:16px;}
+  .header-actions {gap:9px;}
+  .storyboard-products {grid-template-columns:1fr;max-width:265px;gap:10px;margin-bottom:28px;}
+  .storyboard-product {padding:8px 12px 7px;}
+  .storyboard-product img {height:86px;}
+  .storyboard-product h2 {font-size:12px;}
+  .storyboard-product .button {min-height:30px;}
+  .welcome {padding-left:0;padding-right:0;}
+  .hero-furniture {height:145px;margin-top:40px;margin-bottom:10px;}
+  .welcome-copy {margin-top:50px;}
+  .welcome h1 {font-size:28px;}
+  .welcome .home-actions {margin-top:66px;}
+  .customize .preview {height:205px;}
+}
+/* Center the site header */
+.site-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+/* Hamburger menu - left */
+.site-header .menu-toggle {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    margin-right: 0;
+}
+
+/* Homeify logo - center */
+.site-header .brand {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+}
+
+/* Search, favorites, and cart - right */
+.site-header .header-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    margin-left: 0;
+}
+
+
+@media (prefers-reduced-motion:reduce) { .category-carousel .category-image {animation:none;} .category-carousel .category-image:first-child{opacity:1;} .button{transition:none;} }

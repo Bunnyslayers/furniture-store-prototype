@@ -1,13 +1,13 @@
 // One shared catalog for every Shop view. Add new designs here.
 const products = [
-    { id: 'modern-credenza', name: 'Modern Credenza', category: 'storage', type: 'credenza', illustration: 'cabinet', startingPrice: 100 },
-    { id: 'lounge-chair', name: 'Lounge Chair', category: 'seating', type: 'chair', illustration: 'chair', startingPrice: 50 },
+    { id: 'modern-credenza', name: 'Modern Credenza', category: 'storage', type: 'credenza', illustration: 'cabinet', image: 'assets/credenza.png', startingPrice: 100 },
+    { id: 'lounge-chair', name: 'Lounge Chair', category: 'seating', type: 'chair', illustration: 'chair', image: 'assets/chair.png', startingPrice: 50 },
     { id: 'open-bookshelf', name: 'Open Bookshelf', category: 'storage', type: 'shelf', illustration: 'shelf' },
-    { id: 'two-seat-sofa', name: 'Two-Seat Sofa', category: 'seating', type: 'sofa', illustration: 'sofa', startingPrice: 150 },
-    { id: 'classic-credenza', name: 'Classic Credenza', category: 'storage', type: 'credenza', illustration: 'cabinet', startingPrice: 100 },
-    { id: 'accent-chair', name: 'Accent Chair', category: 'seating', type: 'chair', illustration: 'chair', startingPrice: 50 },
+    { id: 'two-seat-sofa', name: 'Two-Seat Sofa', category: 'seating', type: 'sofa', illustration: 'sofa', image: 'assets/sofa.png', startingPrice: 150 },
+    { id: 'classic-credenza', name: 'Classic Credenza', category: 'storage', type: 'credenza', illustration: 'cabinet', image: 'assets/credenza.png', startingPrice: 100 },
+    { id: 'accent-chair', name: 'Accent Chair', category: 'seating', type: 'chair', illustration: 'chair', image: 'assets/chair.png', startingPrice: 50 },
     { id: 'tall-bookshelf', name: 'Tall Bookshelf', category: 'storage', type: 'shelf', illustration: 'shelf' },
-    { id: 'three-seat-sofa', name: 'Three-Seat Sofa', category: 'seating', type: 'sofa', illustration: 'sofa', startingPrice: 150 }
+    { id: 'three-seat-sofa', name: 'Three-Seat Sofa', category: 'seating', type: 'sofa', illustration: 'sofa', image: 'assets/sofa.png', startingPrice: 150 }
 ];
 
 const validFilters = new Set(['all', 'storage', 'seating', 'credenza', 'shelf', 'chair', 'sofa']);
@@ -41,18 +41,25 @@ function renderCatalog(filter) {
         article.className = 'product';
         const heading = document.createElement('h3');
         heading.textContent = product.name;
-        const illustration = document.createElement('div');
-        illustration.className = 'furniture ' + product.illustration;
-        illustration.setAttribute('role', 'img');
-        illustration.setAttribute('aria-label', product.type + ' illustration');
-        illustration.appendChild(document.createElement('i'));
+        const illustration = product.image ? document.createElement('img') : document.createElement('div');
+        if (product.image) {
+            illustration.className = 'catalog-product-image';
+            illustration.src = product.image;
+            illustration.alt = product.name;
+            illustration.loading = 'lazy';
+        } else {
+            illustration.className = 'furniture ' + product.illustration;
+            illustration.setAttribute('role', 'img');
+            illustration.setAttribute('aria-label', product.type + ' illustration');
+            illustration.appendChild(document.createElement('i'));
+        }
         const info = document.createElement('p');
         info.textContent = product.startingPrice ? 'Starting at $' + product.startingPrice : 'Preview only';
         article.append(heading, illustration, info);
-        if (product.type === 'credenza') {
+        if (['credenza', 'chair', 'sofa'].includes(product.type)) {
             const link = document.createElement('a');
             link.className = 'button';
-            link.href = 'inspiration.html#credenza';
+            link.href = 'inspiration.html#' + product.type;
             link.textContent = 'Customize';
             article.appendChild(link);
         } else {
